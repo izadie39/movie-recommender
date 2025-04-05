@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #1A1A1A;
+  color: #f8fafc;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Movie posters background styling */
+.movie-posters-bg {
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      rgba(212, 175, 55, 0.1) 0px,
+      rgba(212, 175, 55, 0.1) 60px,
+      rgba(139, 0, 0, 0.1) 60px,
+      rgba(139, 0, 0, 0.1) 120px,
+      rgba(192, 192, 192, 0.1) 120px,
+      rgba(192, 192, 192, 0.1) 180px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(212, 175, 55, 0.05) 0px,
+      rgba(212, 175, 55, 0.05) 30px,
+      rgba(139, 0, 0, 0.05) 30px,
+      rgba(139, 0, 0, 0.05) 60px,
+      rgba(192, 192, 192, 0.05) 60px,
+      rgba(192, 192, 192, 0.05) 90px
+    );
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+@layer components {
+  .cinema-card {
+    @apply bg-dark-medium rounded-lg p-6 shadow-cinema transition-all duration-300 hover:shadow-glow border border-accent/10 relative z-20;
+  }
+  
+  .cinema-button {
+    @apply px-6 py-3 bg-primary text-dark font-medium rounded-md transition-all duration-300 hover:bg-primary/90 hover:shadow-glow;
+  }
+  
+  .cinema-button-secondary {
+    @apply px-6 py-3 bg-transparent border border-primary text-primary font-medium rounded-md transition-all duration-300 hover:bg-primary/10 hover:shadow-glow;
+  }
+  
+  .cinema-title {
+    @apply font-serif text-4xl font-bold;
+  }
+  
+  .cinema-vignette {
+    @apply relative;
+  }
+  
+  .cinema-vignette::after {
+    @apply content-[''] absolute inset-0 pointer-events-none rounded-lg;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
+  }
+} 
